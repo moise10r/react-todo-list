@@ -40,14 +40,6 @@ button {
   background-color: transparent;
 }
 
-p {
-  color: #2c3440;
-  height: 100%;
-  width: 300px;
-  display: inline-block;
-  background-color: #2c3440;
-}
-
 .flex-center {
   display: flex;
   align-items: center;
@@ -74,14 +66,20 @@ p {
 
 .main-wrapper {
   width: 100%;
+  position: relative;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .aside-main-wrapper {
   width: 30%;
-  max-width: 230px;
+  max-width: 200px;
   height: 100vh;
   background-color: var(--bg-contentColor);
   align-items: flex-start;
+  /* position: fixed;
+  top: 0;
+  left: 0; */
 }
 
 .main-logo-wrapper {
@@ -107,8 +105,9 @@ p {
 }
 
 .main-right-section {
-  height: 100vh;
-  flex: 1;
+  height: 100%;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .link-list {
@@ -187,4 +186,78 @@ p {
   font-size: 1.4rem;
   cursor: pointer;
   color: var(--primary-color);
+}
+
+.main-tasks {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.main-task-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.row1,
+.row2 {
+  width: 100%;
+}
+
+.counter-container {
+  width: 95%;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg-contentColor);
+}
+
+.counter-header {
+  width: 100%;
+}
+
+.counter-header p {
+  color: var(--text-color);
+}
+
+.more .icon {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+}
+
+.counters {
+  width: 100%;
+}
+
+.counter {
+  width: 6rem;
+  height: 6rem;
+  margin-top: 0.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--text-color);
+  flex-direction: column;
+}
+
+.counter span {
+  color: var(--text-color);
+  font-size: 1.6rem;
+}
+
+.counter .title {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 600px) {
+  .main-task-wrapper {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .row1 {
+    width: 53%;
+  }
+
+  .row2 {
+    width: 47%;
+  }
 }
