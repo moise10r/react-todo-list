@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Aside from '../aside';
+import Main from '../main';
 
 class Home extends Component {
   constructor() {
@@ -7,7 +9,12 @@ class Home extends Component {
   }
 
   render() {
-    return (<p>Welcome</p>);
+    return (
+      <div className="main-wrapper flex-center">
+        <Aside />
+        <Main />
+      </div>
+    );
   }
 }
 
