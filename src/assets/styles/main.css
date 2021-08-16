@@ -214,6 +214,7 @@ button {
   width: 100%;
   margin-top: 2rem;
   padding-bottom: 3rem;
+  position: relative;
 }
 
 .main-task-wrapper {
@@ -348,6 +349,47 @@ button {
   color: var(--primary-color);
 }
 
+.add-task-form {
+  position: fixed;
+  top: 7rem;
+  left: 40%;
+  z-index: 1000;
+  width: 30rem;
+}
+
+.add-task-form #form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 3rem;
+  border-radius: 0.5rem;
+  background-color: var(--text-color);
+  position: relative;
+}
+
+.add-task-form #form input {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem 0.5rem;
+  font-weight: 300;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 0.7rem;
+}
+
+.add-task-form #form .close {
+  position: absolute;
+  top: -0.7rem;
+  right: -0.7rem;
+  padding: 0.1rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.add-task-form #form .close .icon {
+  font-size: 2rem;
+  color: var(--text-color);
+}
 @media screen and (min-width: 600px) {
   .main-task-wrapper {
     display: grid;

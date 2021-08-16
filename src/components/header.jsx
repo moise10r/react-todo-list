@@ -2,19 +2,21 @@ import { Component } from 'react';
 import { IconContext } from 'react-icons';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { RiMoonClearFill } from 'react-icons/ri';
+import propTypes from 'prop-types';
 import profile from '../assets/image/profile.png';
 
 class Header extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = { };
   }
 
   render() {
+    const { onClick } = this.props;
     return (
       <div className="main-header-wrapper">
         <div className="header-content-wrapper flex-between">
-          <button type="button" className="add-task flex-center">
+          <button onClick={onClick} type="button" className="add-task flex-center">
             {' '}
             <IconContext.Provider value={{ className: 'icon' }}>
               <AiOutlinePlusCircle />
@@ -38,5 +40,9 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  onClick: propTypes.func.isRequired,
+};
 
 export default Header;
