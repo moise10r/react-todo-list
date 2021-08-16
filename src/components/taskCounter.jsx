@@ -24,6 +24,14 @@ class TaskCounter extends Component {
             <span>113</span>
             <p className="title">Done</p>
           </div>
+          <div className="counter flex-center">
+            <span>113</span>
+            <p className="title">Pending</p>
+          </div>
+          <div className="counter flex-center">
+            <span>113</span>
+            <p className="title">Progress</p>
+          </div>
         </div>
       </div>
     );

@@ -191,6 +191,7 @@ button {
 .main-tasks {
   width: 100%;
   margin-top: 2rem;
+  padding-bottom: 3rem;
 }
 
 .main-task-wrapper {
@@ -206,9 +207,10 @@ button {
 .counter-container {
   width: 95%;
   margin: 0 auto;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 1rem;
   border-radius: 0.5rem;
   background-color: var(--bg-contentColor);
+  max-height: 13rem;
 }
 
 .counter-header {
@@ -222,6 +224,7 @@ button {
 .more .icon {
   font-size: 1.6rem;
   color: var(--primary-color);
+  cursor: pointer;
 }
 
 .counters {
@@ -247,17 +250,24 @@ button {
   font-size: 0.8rem;
 }
 
+.main-tasks-container {
+  width: 95%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg-contentColor);
+}
+
 @media screen and (min-width: 600px) {
   .main-task-wrapper {
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 0.7rem;
   }
-
-  .row1 {
-    width: 53%;
-  }
-
+  .row1,
   .row2 {
-    width: 47%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
   }
 }

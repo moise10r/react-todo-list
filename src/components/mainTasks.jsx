@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TaskCounter from './taskCounter';
+import TaskList from './taskList';
 
 class MainTaskContainer extends Component {
   constructor() {
@@ -10,11 +11,15 @@ class MainTaskContainer extends Component {
   render() {
     return (
       <div className="main-tasks">
-        <div className="main-task-wrapper flex-center">
+        <div className="main-task-wrapper">
           <div className="row1">
             <TaskCounter />
+            <TaskCounter />
+            <TaskList />
           </div>
           <div className="row2">
+            <TaskCounter />
+            <TaskCounter />
             <TaskCounter />
           </div>
         </div>
