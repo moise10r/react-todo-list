@@ -14,7 +14,6 @@ class MainTaskContainer extends Component {
         <div className="main-task-wrapper">
           <div className="row1">
             <TaskCounter />
-            <TaskCounter />
             <TaskList />
           </div>
           <div className="row2">

@@ -13,7 +13,7 @@ class TaskList extends Component {
   render() {
     return (
       <div className="main-tasks-container">
-        <div className="task-list-header flex-between">
+        <div className="counter-header flex-between">
           <p>Task table</p>
           <span className="more">
             <IconContext.Provider value={{ className: 'icon' }}>
@@ -22,8 +22,32 @@ class TaskList extends Component {
           </span>
         </div>
         <ul className="task-list">
-          <li className="task">
-            <input type="checkbox" name="task" id="" />
+          <li className="task flex-between">
+            <input type="checkbox" name="task" id="check" />
+            <input type="text" name="task" id="task" />
+            <span className="icons">
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <TiEdit />
+              </IconContext.Provider>
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <AiOutlineDelete />
+              </IconContext.Provider>
+            </span>
+          </li>
+          <li className="task flex-between">
+            <input type="checkbox" name="task" id="check" />
+            <input type="text" name="task" id="task" />
+            <span className="icons">
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <TiEdit />
+              </IconContext.Provider>
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <AiOutlineDelete />
+              </IconContext.Provider>
+            </span>
+          </li>
+          <li className="task flex-between">
+            <input type="checkbox" name="task" id="check" />
             <input type="text" name="task" id="task" />
             <span className="icons">
               <IconContext.Provider value={{ className: 'icon' }}>
