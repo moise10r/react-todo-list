@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TaskCounter from './taskCounter';
 import TaskList from './taskList';
 import Info from './dayInfo';
+import Message from './message';
 
 class MainTaskContainer extends Component {
   constructor() {
@@ -19,8 +20,8 @@ class MainTaskContainer extends Component {
           </div>
           <div className="row2">
             <Info />
-            <TaskCounter />
-            <TaskCounter />
+            <Message />
+            <Message />
           </div>
         </div>
       </div>

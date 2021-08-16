@@ -77,10 +77,6 @@ button {
   max-width: 200px;
   height: 100vh;
   background-color: var(--bg-contentColor);
-  align-items: flex-start;
-  /* position: fixed;
-  top: 0;
-  left: 0; */
 }
 
 .main-logo-wrapper {
@@ -142,13 +138,13 @@ button {
 
 .main-header-wrapper {
   width: 100%;
-  height: 4rem;
+  height: 5.5rem;
 }
 
 .header-content-wrapper {
   width: 90%;
   height: 100%;
-  line-height: 4rem;
+  line-height: 5.5rem;
   margin: 0 auto;
 }
 
@@ -324,6 +320,25 @@ button {
 .info-left-wrapper p:last-child .icon,
 .info-right-wrapper p:last-child .icon {
   margin-right: 0.5rem;
+}
+
+.message-wrapper {
+  width: 95%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg-contentColor);
+}
+
+.message-wrapper  span {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.message-wrapper p {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  color: var(--primary-color);
 }
 
 @media screen and (min-width: 600px) {
