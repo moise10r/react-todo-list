@@ -12,11 +12,11 @@ class Info extends Component {
   render() {
     return (
       <div className="main-day-info">
-        <p>Day Info</p>
-        <div className="info-detail">
+        <p className="title">Day Info</p>
+        <div className="info-detail flex-between">
           <div className="info-left-wrapper">
-            <p className="date">Date</p>
-            <p>
+            <p className="date">Time</p>
+            <p className="flex-center">
               <IconContext.Provider value={{ className: 'icon' }}>
                 <BiTimeFive />
               </IconContext.Provider>
@@ -25,7 +25,7 @@ class Info extends Component {
           </div>
           <div className="info-right-wrapper">
             <p className="date">Date</p>
-            <p>
+            <p className="flex-center">
               <IconContext.Provider value={{ className: 'icon' }}>
                 <FaCalendarAlt />
               </IconContext.Provider>
