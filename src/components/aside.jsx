@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { IconContext } from 'react-icons';
+import { AiTwotoneHome } from 'react-icons/ai';
+import { FaProjectDiagram, FaCalendarAlt } from 'react-icons/fa';
+import { ImMail2 } from 'react-icons/im';
 import logo from '../assets/image/logo.png';
 
 class Aside extends Component {
@@ -19,10 +23,41 @@ class Aside extends Component {
           </span>
         </div>
         <ul className="link-list flex-start">
-          <li className="link"><a href="#2">Dashboard</a></li>
-          <li className="link"><a href="#2">Project</a></li>
-          <li className="link"><a href="#2">Calender</a></li>
-          <li className="link"><a href="#2">Mail</a></li>
+          <li className="link ">
+            <a href="#2" className="active">
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <AiTwotoneHome />
+              </IconContext.Provider>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li className="link">
+            <a href="#2">
+              {' '}
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <FaProjectDiagram />
+              </IconContext.Provider>
+              <span>Project</span>
+            </a>
+          </li>
+          <li className="link">
+            <a href="#2">
+              {' '}
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <FaCalendarAlt />
+              </IconContext.Provider>
+              <span>Calendar</span>
+            </a>
+          </li>
+          <li className="link">
+            <a href="#2">
+              {' '}
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <ImMail2 />
+              </IconContext.Provider>
+              <span>Mail</span>
+            </a>
+          </li>
         </ul>
       </div>
     );

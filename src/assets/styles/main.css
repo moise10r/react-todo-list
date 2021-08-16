@@ -121,6 +121,18 @@ p {
 }
 
 .link-list .link a {
+  color: var(--primary-color);
+}
+
+.link-list .link a:hover {
+  color: var(--text-color);
+}
+
+.link-list .link a.active{
   font-size: 1rem;
   color: var(--text-color);
+}
+
+.link-list .link a span {
+  margin-left: 0.5rem;
 }
