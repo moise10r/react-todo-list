@@ -58,6 +58,42 @@ class TaskList extends Component {
               </IconContext.Provider>
             </span>
           </li>
+          <li className="task flex-between">
+            <input type="checkbox" name="task" id="check" />
+            <input type="text" name="task" id="task" />
+            <span className="icons">
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <TiEdit />
+              </IconContext.Provider>
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <AiOutlineDelete />
+              </IconContext.Provider>
+            </span>
+          </li>
+          <li className="task flex-between">
+            <input type="checkbox" name="task" id="check" />
+            <input type="text" name="task" id="task" />
+            <span className="icons">
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <TiEdit />
+              </IconContext.Provider>
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <AiOutlineDelete />
+              </IconContext.Provider>
+            </span>
+          </li>
+          <li className="task flex-between">
+            <input type="checkbox" name="task" id="check" />
+            <input type="text" name="task" id="task" />
+            <span className="icons">
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <TiEdit />
+              </IconContext.Provider>
+              <IconContext.Provider value={{ className: 'icon' }}>
+                <AiOutlineDelete />
+              </IconContext.Provider>
+            </span>
+          </li>
         </ul>
       </div>
     );

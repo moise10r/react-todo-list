@@ -75,8 +75,11 @@ button {
 .aside-main-wrapper {
   width: 30%;
   max-width: 200px;
-  height: 100vh;
+  height: 100%;
   background-color: var(--bg-contentColor);
+  position: fixed;
+  top: 0; 
+  left: 0;
 }
 
 .main-logo-wrapper {
@@ -104,7 +107,8 @@ button {
 .main-right-section {
   height: 100%;
   align-items: flex-start;
-  width: 100%;
+  width: 90%;
+  margin-left: 200px;
 }
 
 .link-list {
@@ -121,10 +125,12 @@ button {
 
 .link-list .link a {
   color: var(--secondary-text-color);
+  transition: 0.75s;
 }
 
 .link-list .link a:hover {
   color: var(--text-color);
+  padding-left: 1.5rem;
 }
 
 .link-list .link a.active{
