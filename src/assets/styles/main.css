@@ -1,5 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #222831;
+  --bg-secColor: #f9f9f9;
+  --bg-contentColor: #2c3440;
+  --primary-color: #ffffff;
+  --secondary-color: #282846;
+  --text-color: #29a19c;
+}
+
+/* Typography */
+
 body {
-  background-color: #222831;
+  background-color: var(--bg-color);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+input,
+button {
+  outline: none;
+  border: none;
 }
 
 p {
