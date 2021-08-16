@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Aside from '../aside';
 
 class Home extends Component {
   constructor() {
@@ -7,7 +8,11 @@ class Home extends Component {
   }
 
   render() {
-    return (<p>Welcome</p>);
+    return (
+      <div className="main-wrapper">
+        <Aside />
+      </div>
+    );
   }
 }
 

@@ -42,3 +42,37 @@ p {
   display: inline-block;
   background-color: #2c3440;
 }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-btween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.main-wrapper {
+  width: 100%;
+}
+
+.aside-main-wrapper {
+  width: 200px;
+  height: 100vh;
+  background-color: var(--bg-contentColor);
+}
