@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  font-size: 14px;
 }
 
 :root {
@@ -36,6 +37,7 @@ input,
 button {
   outline: none;
   border: none;
+  background-color: transparent;
 }
 
 p {
@@ -58,7 +60,7 @@ p {
   justify-content: flex-start;
 }
 
-.flex-btween {
+.flex-between {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,6 +107,7 @@ p {
 }
 
 .main-right-section {
+  height: 100vh;
   flex: 1;
 }
 
@@ -135,4 +138,52 @@ p {
 
 .link-list .link a span {
   margin-left: 0.5rem;
+}
+
+.main-header-wrapper {
+  width: 100%;
+  height: 4rem;
+}
+
+.header-content-wrapper {
+  width: 90%;
+  height: 100%;
+  line-height: 4rem;
+  margin: 0 auto;
+}
+
+.auth span {
+  color: var(--primary-color);
+  cursor: pointer;
+  font-style: italic;
+}
+
+.profile-img {
+  height: 2.5rem;
+  width: 2.5rem;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 1rem;
+}
+
+.profile-img img {
+  max-width: 100%;
+}
+
+.add-task {
+  padding: 0.4rem 1.5rem;
+  background-color: var(--text-color);
+  color: var(--primary-color);
+  cursor: pointer;
+  border-radius: 0.4rem;
+}
+
+.add-task .icon {
+  margin-right: 0.3rem;
+}
+
+.change-mode .icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--primary-color);
 }

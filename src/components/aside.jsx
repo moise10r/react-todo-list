@@ -16,7 +16,7 @@ class Aside extends Component {
       <div className="aside-main-wrapper">
         <div className="main-logo-wrapper flex-center">
           <div className="logo-wrapper">
-            <img src={logo} alt="" />
+            <img src={logo} alt="logo" />
           </div>
           <span>
             Tasks Book
