@@ -156,6 +156,7 @@ p {
   color: var(--primary-color);
   cursor: pointer;
   font-style: italic;
+  font-size: 0.9rem;
 }
 
 .profile-img {

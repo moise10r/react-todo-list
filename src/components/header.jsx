@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { IconContext } from 'react-icons';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { RiMoonClearFill } from 'react-icons/ri';
-import profile from '../assets/image/profile.jpeg';
+import profile from '../assets/image/profile.png';
 
 class Header extends Component {
   constructor() {
