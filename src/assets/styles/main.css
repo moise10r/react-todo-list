@@ -78,12 +78,12 @@ button {
   height: 100%;
   background-color: var(--bg-contentColor);
   position: fixed;
-  top: 0; 
+  top: 0;
   left: 0;
 }
 
 .main-logo-wrapper {
-  width: 100%;  
+  width: 100%;
   padding-top: 1rem;
 }
 
@@ -93,6 +93,7 @@ button {
   font-weight: 500;
   font-size: 1.3rem;
 }
+
 .logo-wrapper {
   width: 50px;
   height: 50px;
@@ -109,6 +110,31 @@ button {
   align-items: flex-start;
   width: 90%;
   margin-left: 200px;
+}
+
+.auth span {
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.counter span {
+  color: var(--text-color);
+  font-size: 1.6rem;
+}
+
+.message-wrapper {
+  width: 95%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg-contentColor);
+}
+
+.message-wrapper span {
+  font-size: 0.9rem;
+  color: var(--text-color);
 }
 
 .link-list {
@@ -133,7 +159,7 @@ button {
   padding-left: 1.5rem;
 }
 
-.link-list .link a.active{
+.link-list .link a.active {
   font-size: 1rem;
   color: var(--text-color);
 }
@@ -152,13 +178,6 @@ button {
   height: 100%;
   line-height: 5.5rem;
   margin: 0 auto;
-}
-
-.auth span {
-  color: var(--secondary-text-color);
-  cursor: pointer;
-  font-style: italic;
-  font-size: 0.9rem;
 }
 
 .profile-img {
@@ -243,11 +262,6 @@ button {
   flex-direction: column;
 }
 
-.counter span {
-  color: var(--text-color);
-  font-size: 1.6rem;
-}
-
 .counter .title {
   color: var(--primary-color);
   font-size: 0.8rem;
@@ -312,8 +326,8 @@ button {
   color: var(--text-color);
 }
 
-.info-left-wrapper>p,
-.info-right-wrapper>p {
+.info-left-wrapper > p,
+.info-right-wrapper > p {
   color: var(--primary-color);
 }
 
@@ -328,19 +342,6 @@ button {
   margin-right: 0.5rem;
 }
 
-.message-wrapper {
-  width: 95%;
-  margin: 0 auto;
-  padding: 1.5rem 1rem;
-  border-radius: 0.5rem;
-  background-color: var(--bg-contentColor);
-}
-
-.message-wrapper  span {
-  font-size: 0.9rem;
-  color: var(--text-color);
-}
-
 .message-wrapper p {
   font-size: 0.8rem;
   margin-top: 1rem;
@@ -353,6 +354,7 @@ button {
     grid-template-columns: 1.3fr 1fr;
     gap: 0.7rem;
   }
+
   .row1,
   .row2 {
     display: grid;
