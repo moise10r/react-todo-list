@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable max-len */
 import React, { Component } from 'react';
 import Header from './header';
@@ -17,7 +18,6 @@ class Main extends Component {
     this.setState({
       value: input.value,
     });
-    console.log(input.value);
   }
 
   handleAddTaskForm = () => {
@@ -32,9 +32,19 @@ class Main extends Component {
     });
   }
 
+  handleUpdate = (e, id) => {
+    const { todos } = this.state;
+    todos.forEach((todo) => {
+      if (todo.id === id) {
+        todo.title = e.target.value;
+      }
+    });
+    localStorage.setItem('tasks', JSON.stringify(todos));
+    this.setState(todos);
+  }
+
   handleSubmit = (e) => {
-    const { todos, value } = this.state;
-    console.log(value);
+    const { todos } = this.state;
     e.preventDefault();
     if (e.target[0].value === '') {
       e.preventDefault();
@@ -54,7 +64,7 @@ class Main extends Component {
   }
 
   render() {
-    const { value, isClick } = this.state;
+    const { value, isClick, todos } = this.state;
     return (
       <div className="main-right-section">
         <Header onClick={this.handleAddTaskForm} />
@@ -63,7 +73,9 @@ class Main extends Component {
           isClick={isClick}
           onClose={this.handleClose}
           onSubmit={this.handleSubmit}
+          onUpdate={this.handleUpdate}
           value={value}
+          todos={todos}
         />
       </div>
     );

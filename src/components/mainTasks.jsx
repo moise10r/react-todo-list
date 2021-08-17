@@ -18,14 +18,14 @@ class MainTaskContainer extends Component {
 
   render() {
     const {
-      value, onChange, onClose, isClick, onSubmit,
+      value, onChange, onClose, isClick, onSubmit, onUpdate, todos,
     } = this.props;
     return (
       <div className="main-tasks">
         <div className="main-task-wrapper">
           <div className="row1">
             <TaskCounter />
-            <TaskList onChange={onChange} />
+            <TaskList onUpdate={onUpdate} todos={todos} />
           </div>
           <div className="row2">
             <Info />
@@ -56,6 +56,8 @@ MainTaskContainer.propTypes = {
   onChange: propTypes.func.isRequired,
   onClose: propTypes.func.isRequired,
   onSubmit: propTypes.func.isRequired,
+  onUpdate: propTypes.func.isRequired,
+  todos: propTypes.arrayOf.isRequired,
 };
 
 export default MainTaskContainer;
