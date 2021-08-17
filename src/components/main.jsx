@@ -34,23 +34,26 @@ class Main extends Component {
   handleSubmit = (e) => {
     const { todos } = this.state;
     e.preventDefault();
-    const newTodos = [...todos];
-    const todo = {
-      id: todos.length,
-      title: e.target[0].value,
-      completed: false,
-    };
-    newTodos.push(todo);
-    localStorage.setItem('tasks', JSON.stringify(newTodos));
-    this.setState({
-      todos: newTodos,
-    });
-    console.log('submit');
+    if (e.target[0].value === '') {
+      e.preventDefault();
+      console.log('prevent');
+    } else {
+      const newTodos = [...todos];
+      const todo = {
+        id: todos.length,
+        title: e.target[0].value,
+        completed: false,
+      };
+      newTodos.push(todo);
+      localStorage.setItem('tasks', JSON.stringify(newTodos));
+      this.setState({
+        todos: newTodos,
+      });
+    }
   }
 
   render() {
-    const { todos, value, isClick } = this.state;
-    console.log(todos, isClick);
+    const { value, isClick } = this.state;
     return (
       <div className="main-right-section">
         <Header onClick={this.handleAddTaskForm} />
