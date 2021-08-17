@@ -399,6 +399,12 @@ button {
   font-size: 2rem;
   color: var(--text-color);
 }
+
+.completed {
+  text-decoration: line-through;
+  font-style: italic;
+}
+
 @media screen and (min-width: 600px) {
   .main-task-wrapper {
     display: grid;

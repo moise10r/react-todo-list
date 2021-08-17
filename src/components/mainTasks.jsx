@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-tag-spacing */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -18,14 +20,14 @@ class MainTaskContainer extends Component {
 
   render() {
     const {
-      value, onChange, onClose, isClick, onSubmit, onUpdate, todos, onDelete,
+      value, onChange, onClose, isClick, onSubmit, onUpdate, todos, onDelete, onComplete,
     } = this.props;
     return (
       <div className="main-tasks">
         <div className="main-task-wrapper">
           <div className="row1">
             <TaskCounter />
-            <TaskList onUpdate={onUpdate} todos={todos} onDelete={onDelete} />
+            <TaskList onUpdate={onUpdate} todos={todos} onDelete={onDelete} onComplete={onComplete}/>
           </div>
           <div className="row2">
             <Info />
@@ -58,7 +60,8 @@ MainTaskContainer.propTypes = {
   onSubmit: propTypes.func.isRequired,
   onUpdate: propTypes.func.isRequired,
   onDelete: propTypes.func.isRequired,
-  todos: propTypes.arrayOf.isRequired,
+  onComplete: propTypes.func.isRequired,
+  todos: propTypes.array.isRequired,
 };
 
 export default MainTaskContainer;

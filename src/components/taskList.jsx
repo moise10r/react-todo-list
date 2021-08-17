@@ -32,7 +32,7 @@ class TaskList extends Component {
 
   render() {
     const { disabled, currentTask } = this.state;
-    const { onUpdate, onDelete } = this.props;
+    const { onUpdate, onDelete, onComplete } = this.props;
     const todos = JSON.parse(localStorage.getItem('tasks'));
     return (
       <div className="main-tasks-container">
@@ -45,10 +45,10 @@ class TaskList extends Component {
           </span>
         </div>
         <ul className="task-list">
-          { todos.map(({ id, title }) => (
+          { todos.map(({ id, title, completed }) => (
             <li key={id} onClick={() => this.handeleShowControlBtn(id)} className="task flex-between">
-              <input type="checkbox" name="task" id="check" />
-              <input type="text" onChange={(e) => onUpdate(e, id)} value={title} name="editTask" id="task" disabled={disabled} />
+              <input type="checkbox" onChange={() => onComplete(id)} name="task" id="check" checked={completed} />
+              <input type="text" onChange={(e) => onUpdate(e, id)} className={completed ? 'completed' : ''} value={title} name="editTask" id="task" disabled={disabled} />
               <span className={`icons ${currentTask === id ? 'show' : ''}`} id={title}>
                 <span role="button" onClick={this.handleEdit}>
                   <IconContext.Provider value={{ className: 'icon' }}>
@@ -72,5 +72,6 @@ class TaskList extends Component {
 TaskList.propTypes = {
   onUpdate: propTypes.func.isRequired,
   onDelete: propTypes.func.isRequired,
+  onComplete: propTypes.func.isRequired,
 };
 export default TaskList;

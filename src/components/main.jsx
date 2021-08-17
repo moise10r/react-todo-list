@@ -46,8 +46,18 @@ class Main extends Component {
   handleDelete = (id) => {
     const todos = JSON.parse(localStorage.getItem('tasks'));
     const upadetedTodos = todos.filter((todo) => todo.id !== id);
-    console.log(upadetedTodos);
     localStorage.setItem('tasks', JSON.stringify(upadetedTodos));
+  }
+
+  handleCompleteTask = (id) => {
+    const { todos } = this.state;
+    todos.forEach((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+    });
+    localStorage.setItem('tasks', JSON.stringify(todos));
+    this.setState(todos);
   }
 
   handleSubmit = (e) => {
@@ -82,6 +92,7 @@ class Main extends Component {
           onSubmit={this.handleSubmit}
           onUpdate={this.handleUpdate}
           onDelete={this.handleDelete}
+          onComplete={this.handleCompleteTask}
           value={value}
           todos={todos}
         />
