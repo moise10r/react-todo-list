@@ -60,7 +60,6 @@ class Main extends Component {
           onClose={this.handleClose}
           onSubmit={this.handleSubmit}
           value={value}
-          todos={todos}
         />
       </div>
     );

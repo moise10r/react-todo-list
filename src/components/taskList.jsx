@@ -1,6 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
 import { Component } from 'react';
-import propTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { TiEdit } from 'react-icons/ti';
@@ -14,9 +13,7 @@ class TaskList extends Component {
   }
 
   render() {
-    const { todos } = this.props;
-    const localTodos = JSON.parse(localStorage.getItem('tasks'));
-    const todoList = localTodos || todos;
+    const todos = JSON.parse(localStorage.getItem('tasks'));
     return (
       <div className="main-tasks-container">
         <div className="counter-header flex-between">
@@ -28,7 +25,7 @@ class TaskList extends Component {
           </span>
         </div>
         <ul className="task-list">
-          { todoList.map(({ id, title }) => (
+          { todos.map(({ id, title }) => (
             <li key={id} className="task flex-between">
               <input type="checkbox" name="task" id="check" />
               <input type="text" value={title} name="task" id="task" />
@@ -47,9 +44,5 @@ class TaskList extends Component {
     );
   }
 }
-
-TaskList.propTypes = {
-  todos: propTypes.array.isRequired,
-};
 
 export default TaskList;
