@@ -32,7 +32,7 @@ class TaskList extends Component {
 
   render() {
     const { disabled, currentTask } = this.state;
-    const { onUpdate } = this.props;
+    const { onUpdate, onDelete } = this.props;
     const todos = JSON.parse(localStorage.getItem('tasks'));
     return (
       <div className="main-tasks-container">
@@ -55,7 +55,7 @@ class TaskList extends Component {
                     <TiEdit />
                   </IconContext.Provider>
                 </span>
-                <span>
+                <span role="button" onClick={() => onDelete(id)}>
                   <IconContext.Provider value={{ className: 'icon' }}>
                     <AiOutlineDelete />
                   </IconContext.Provider>
@@ -71,5 +71,6 @@ class TaskList extends Component {
 
 TaskList.propTypes = {
   onUpdate: propTypes.func.isRequired,
+  onDelete: propTypes.func.isRequired,
 };
 export default TaskList;
