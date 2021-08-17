@@ -12,19 +12,8 @@ class TaskList extends Component {
     super();
     this.state = {
       disabled: false,
+      currentTask: null,
     };
-  }
-
-  componentDidMount() {
-    const task = document.querySelectorAll('.task');
-    task.forEach((item) => {
-      item.addEventListener('click', () => {
-        task.forEach((t) => {
-          t.querySelector('.icons').classList.remove('show');
-        });
-        item.querySelector('.icons').classList.add('show');
-      });
-    });
   }
 
   handleEdit = () => {
@@ -37,9 +26,12 @@ class TaskList extends Component {
     }
   }
 
+  handeleShowControlBtn = (id) => {
+    this.setState({ currentTask: id });
+  }
+
   render() {
-    const { disabled } = this.state;
-    console.log(disabled);
+    const { disabled, currentTask } = this.state;
     const todos = JSON.parse(localStorage.getItem('tasks'));
     return (
       <div className="main-tasks-container">
@@ -53,10 +45,10 @@ class TaskList extends Component {
         </div>
         <ul className="task-list">
           { todos.map(({ id, title }) => (
-            <li id={id} key={id} className="task flex-between">
+            <li id={id} key={id} onClick={() => this.handeleShowControlBtn(id)} className="task flex-between">
               <input type="checkbox" name="task" id="check" />
               <input type="text" value={title} name="task" id="task" disabled={disabled} />
-              <span className="icons" id={title}>
+              <span className={`icons ${currentTask === id ? 'show' : ''}`} id={title}>
                 <span role="button" onClick={this.handleEdit}>
                   <IconContext.Provider value={{ className: 'icon' }}>
                     <TiEdit />
