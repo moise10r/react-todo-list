@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { Component } from 'react';
@@ -17,14 +18,15 @@ class MainTaskContainer extends Component {
 
   render() {
     const {
-      value, onChange, onClose, isClick,
+      value, onChange, onClose, isClick, onSubmit, todos,
     } = this.props;
+    console.log(todos);
     return (
       <div className="main-tasks">
         <div className="main-task-wrapper">
           <div className="row1">
             <TaskCounter />
-            <TaskList />
+            <TaskList todos={todos} />
           </div>
           <div className="row2">
             <Info />
@@ -34,7 +36,7 @@ class MainTaskContainer extends Component {
         </div>
         { isClick && (
         <div className="add-task-form">
-          <form id="form">
+          <form id="form" onSubmit={(e) => onSubmit(e)}>
             <input onChange={(e) => onChange(e)} type="text" name="task" value={value} />
             <span className="close flex-center" onClick={onClose}>
               <IconContext.Provider value={{ className: 'icon' }}>
@@ -54,6 +56,8 @@ MainTaskContainer.propTypes = {
   value: propTypes.string.isRequired,
   onChange: propTypes.func.isRequired,
   onClose: propTypes.func.isRequired,
+  onSubmit: propTypes.func.isRequired,
+  todos: propTypes.array.isRequired,
 };
 
 export default MainTaskContainer;
