@@ -313,6 +313,7 @@ button {
 .icons .icon {
   font-size: 1.2rem;
   color: var(--secondary-text-color);
+  cursor: pointer;
 }
 
 .icons .icon:last-child {
