@@ -15,7 +15,8 @@ class TaskList extends Component {
 
   render() {
     const { todos } = this.props;
-    console.log(todos);
+    const localTodos = JSON.parse(localStorage.getItem('tasks'));
+    const todoList = localTodos || todos;
     return (
       <div className="main-tasks-container">
         <div className="counter-header flex-between">
@@ -27,7 +28,7 @@ class TaskList extends Component {
           </span>
         </div>
         <ul className="task-list">
-          { todos.map(({ id, title }) => (
+          { todoList.map(({ id, title }) => (
             <li key={id} className="task flex-between">
               <input type="checkbox" name="task" id="check" />
               <input type="text" value={title} name="task" id="task" />

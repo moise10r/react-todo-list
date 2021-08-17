@@ -41,6 +41,7 @@ class Main extends Component {
       completed: false,
     };
     newTodos.push(todo);
+    localStorage.setItem('tasks', JSON.stringify(newTodos));
     this.setState({
       todos: newTodos,
     });
