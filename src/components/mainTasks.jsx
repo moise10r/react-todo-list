@@ -25,7 +25,7 @@ class MainTaskContainer extends Component {
         <div className="main-task-wrapper">
           <div className="row1">
             <TaskCounter />
-            <TaskList />
+            <TaskList onChange={onChange} />
           </div>
           <div className="row2">
             <Info />
@@ -36,7 +36,7 @@ class MainTaskContainer extends Component {
         { isClick && (
         <div className="add-task-form">
           <form id="form" onSubmit={(e) => onSubmit(e)}>
-            <input onChange={(e) => onChange(e)} type="text" name="task" placeholder="Add Task" value={value} />
+            <input onChange={(e) => onChange(e)} type="text" name="addTask" placeholder="Add Task" value={value} />
             <span className="close flex-center" onClick={onClose}>
               <IconContext.Provider value={{ className: 'icon' }}>
                 <VscClose />

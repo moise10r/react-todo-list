@@ -6,23 +6,23 @@ import { IconContext } from 'react-icons';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { TiEdit } from 'react-icons/ti';
 import { FiMoreHorizontal } from 'react-icons/fi';
+import propTypes from 'prop-types';
 
 class TaskList extends Component {
   constructor() {
     super();
     this.state = {
-      disabled: false,
+      disabled: true,
       currentTask: null,
     };
   }
 
   handleEdit = () => {
-    const state = { ...this.state };
     const { disabled } = this.state;
     if (!disabled) {
-      this.setState({ ...state, disabled: true });
+      this.setState({ disabled: true });
     } else {
-      this.setState({ ...state, disabled: false });
+      this.setState({ disabled: false });
     }
   }
 
@@ -32,7 +32,8 @@ class TaskList extends Component {
 
   render() {
     const { disabled, currentTask } = this.state;
-    const todos = JSON.parse(localStorage.getItem('tasks'));
+    const { onChange } = this.props;
+    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
     return (
       <div className="main-tasks-container">
         <div className="counter-header flex-between">
@@ -47,7 +48,7 @@ class TaskList extends Component {
           { todos.map(({ id, title }) => (
             <li id={id} key={id} onClick={() => this.handeleShowControlBtn(id)} className="task flex-between">
               <input type="checkbox" name="task" id="check" />
-              <input type="text" value={title} name="task" id="task" disabled={disabled} />
+              <input type="text" onChange={(e) => onChange(e)} value={title} name="editTask" id="task" disabled={disabled} />
               <span className={`icons ${currentTask === id ? 'show' : ''}`} id={title}>
                 <span role="button" onClick={this.handleEdit}>
                   <IconContext.Provider value={{ className: 'icon' }}>
@@ -68,4 +69,7 @@ class TaskList extends Component {
   }
 }
 
+TaskList.propTypes = {
+  onChange: propTypes.func.isRequired,
+};
 export default TaskList;

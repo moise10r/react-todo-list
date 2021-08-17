@@ -17,6 +17,7 @@ class Main extends Component {
     this.setState({
       value: input.value,
     });
+    console.log(input.value);
   }
 
   handleAddTaskForm = () => {
@@ -32,7 +33,8 @@ class Main extends Component {
   }
 
   handleSubmit = (e) => {
-    const { todos } = this.state;
+    const { todos, value } = this.state;
+    console.log(value);
     e.preventDefault();
     if (e.target[0].value === '') {
       e.preventDefault();
