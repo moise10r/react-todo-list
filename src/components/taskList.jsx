@@ -1,5 +1,6 @@
-/* eslint-disable react/forbid-prop-types */
-import { Component } from 'react';
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import React, { Component } from 'react';
 import { IconContext } from 'react-icons';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { TiEdit } from 'react-icons/ti';
@@ -10,6 +11,18 @@ class TaskList extends Component {
     super();
     this.state = {
     };
+  }
+
+  componentDidMount() {
+    const task = document.querySelectorAll('.task');
+    task.forEach((item) => {
+      item.addEventListener('click', () => {
+        task.forEach((t) => {
+          t.querySelector('.icons').classList.remove('show');
+        });
+        item.querySelector('.icons').classList.add('show');
+      });
+    });
   }
 
   render() {
@@ -26,10 +39,10 @@ class TaskList extends Component {
         </div>
         <ul className="task-list">
           { todos.map(({ id, title }) => (
-            <li key={id} className="task flex-between">
+            <li id={id} key={id} className="task flex-between">
               <input type="checkbox" name="task" id="check" />
               <input type="text" value={title} name="task" id="task" />
-              <span className="icons">
+              <span className="icons" id={title}>
                 <IconContext.Provider value={{ className: 'icon' }}>
                   <TiEdit />
                 </IconContext.Provider>

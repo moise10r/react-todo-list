@@ -36,7 +36,6 @@ class Main extends Component {
     e.preventDefault();
     if (e.target[0].value === '') {
       e.preventDefault();
-      console.log('prevent');
     } else {
       const newTodos = [...todos];
       const todo = {

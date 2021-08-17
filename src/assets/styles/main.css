@@ -302,6 +302,14 @@ button {
   background-color: var(--bg-contentColor);
 }
 
+.icons {
+  display: none;
+}
+
+.icons.show {
+  display: block;
+}
+
 .icons .icon {
   font-size: 1.2rem;
   color: var(--secondary-text-color);
