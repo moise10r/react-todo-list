@@ -13,8 +13,8 @@ To get a local copy up and running follow these simple example steps.
 ### Setup
 
 ```bash
-git clone git@github.com:moise10r/math-magicians.git
-cd ./math-magicians
+git clone git@github.com:moise10r/react-todo-list.git
+cd ./react-todo-list
 ```
 
 ### Install
