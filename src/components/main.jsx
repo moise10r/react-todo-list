@@ -1,78 +1,78 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable max-len */
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import Header from './header';
 import MainTaskContainer from './mainTasks';
 
-class Main extends Component {
-  constructor() {
-    super();
-    this.state = {
-      value: '',
-      todos: [],
-      isClick: false,
-    };
-  }
+const Main = ({ isOpened }) => {
+  const [state, setstate] = useState({
+    value: '',
+    todos: [],
+    isClick: false,
+  });
 
-  componentDidMount() {
-    window.addEventListener('load', this.handleLoadTodos);
-  }
-
-  handleLoadTodos = () => {
+  const handleLoadTodos = () => {
     const todos = JSON.parse(localStorage.getItem('tasks')) || [];
-    this.setState({ todos });
-  }
+    setstate({ ...state, todos });
+  };
 
-  handleChange = ({ currentTarget: input }) => {
-    this.setState({
+  useEffect(() => {
+    window.addEventListener('load', handleLoadTodos);
+  }, []);
+
+  const handleChange = ({ currentTarget: input }) => {
+    setstate({
+      ...state,
       value: input.value,
     });
-  }
+  };
 
-  handleAddTaskForm = () => {
-    this.setState({
+  const handleAddTaskForm = () => {
+    setstate({
+      ...state,
       isClick: true,
     });
-  }
+  };
 
-  handleClose = () => {
-    this.setState({
+  const handleClose = () => {
+    setstate({
+      ...state,
       isClick: false,
     });
-  }
+  };
 
-  handleUpdate = (e, id) => {
-    const { todos } = this.state;
+  const handleUpdate = (e, id) => {
+    const { todos } = state;
     todos.forEach((todo) => {
       if (todo.id === id) {
         todo.title = e.target.value;
       }
     });
     localStorage.setItem('tasks', JSON.stringify(todos));
-    this.setState(todos);
-  }
+    setstate({ ...state, todos });
+  };
 
-  handleDelete = (id) => {
+  const handleDelete = (id) => {
     const todos = JSON.parse(localStorage.getItem('tasks'));
     const upadetedTodos = todos.filter((todo) => todo.id !== id);
     localStorage.setItem('tasks', JSON.stringify(upadetedTodos));
-    this.setState({ todos: upadetedTodos });
-  }
+    setstate({ ...state, todos: upadetedTodos });
+  };
 
-  handleCompleteTask = (id) => {
-    const { todos } = this.state;
+  const handleCompleteTask = (id) => {
+    const { todos } = state;
     todos.forEach((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
       }
     });
     localStorage.setItem('tasks', JSON.stringify(todos));
-    this.setState(todos);
-  }
+    setstate(todos);
+  };
 
-  handleSubmit = (e) => {
-    const { todos } = this.state;
+  const handleSubmit = (e) => {
+    const { todos } = state;
     e.preventDefault();
     if (e.target[0].value === '') {
       e.preventDefault();
@@ -85,56 +85,54 @@ class Main extends Component {
       };
       newTodos.push(todo);
       localStorage.setItem('tasks', JSON.stringify(newTodos));
-      this.setState({
+      setstate({
+        ...state,
         todos: newTodos,
       });
     }
-  }
+  };
 
-  handleCountCompletedTodos = () => {
-    const { todos } = this.state;
+  const handleCountCompletedTodos = () => {
+    const { todos } = state;
     const newTodos = [...todos];
     const completedTodos = newTodos.filter((todo) => todo.completed);
     return completedTodos.length;
-  }
+  };
 
-  handleCountProgressTodos = () => {
-    const { todos } = this.state;
+  const handleCountProgressTodos = () => {
+    const { todos } = state;
     const newTodos = [...todos];
     const completedTodos = newTodos.filter((todo) => !todo.completed);
     return completedTodos.length;
-  }
+  };
 
-  handleCountTodos = () => {
-    const { todos } = this.state;
+  const handleCountTodos = () => {
+    const { todos } = state;
     const newTodos = [...todos];
     return newTodos.length;
-  }
+  };
 
-  render() {
-    const { value, isClick, todos } = this.state;
-    const { isOpened } = this.props;
-    return (
-      <div className={isOpened ? 'main-right-section open' : 'main-right-section'}>
-        <Header onClick={this.handleAddTaskForm} />
-        <MainTaskContainer
-          onChange={this.handleChange}
-          isClick={isClick}
-          onClose={this.handleClose}
-          onSubmit={this.handleSubmit}
-          onUpdate={this.handleUpdate}
-          onDelete={this.handleDelete}
-          onComplete={this.handleCompleteTask}
-          value={value}
-          todos={todos}
-          completedCounter={this.handleCountCompletedTodos}
-          InprogressCounter={this.handleCountProgressTodos}
-          todosCounter={this.handleCountTodos}
-        />
-      </div>
-    );
-  }
-}
+  const { value, isClick, todos } = state;
+  return (
+    <div className={isOpened ? 'main-right-section open' : 'main-right-section'}>
+      <Header onClick={handleAddTaskForm} />
+      <MainTaskContainer
+        onChange={handleChange}
+        isClick={isClick}
+        onClose={handleClose}
+        onSubmit={handleSubmit}
+        onUpdate={handleUpdate}
+        onDelete={handleDelete}
+        onComplete={handleCompleteTask}
+        value={value}
+        todos={todos}
+        completedCounter={handleCountCompletedTodos}
+        InprogressCounter={handleCountProgressTodos}
+        todosCounter={handleCountTodos}
+      />
+    </div>
+  );
+};
 
 Main.propTypes = {
   isOpened: propTypes.bool.isRequired,
