@@ -14,6 +14,15 @@ class Main extends Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('load', this.handleLoadTodos);
+  }
+
+  handleLoadTodos = () => {
+    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
+    this.setState({ todos });
+  }
+
   handleChange = ({ currentTarget: input }) => {
     this.setState({
       value: input.value,
@@ -47,6 +56,7 @@ class Main extends Component {
     const todos = JSON.parse(localStorage.getItem('tasks'));
     const upadetedTodos = todos.filter((todo) => todo.id !== id);
     localStorage.setItem('tasks', JSON.stringify(upadetedTodos));
+    this.setState({ todos: upadetedTodos });
   }
 
   handleCompleteTask = (id) => {

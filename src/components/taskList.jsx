@@ -32,8 +32,8 @@ class TaskList extends Component {
 
   render() {
     const { disabled, currentTask } = this.state;
+    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
     const { onUpdate, onDelete, onComplete } = this.props;
-    const todos = JSON.parse(localStorage.getItem('tasks'));
     return (
       <div className="main-tasks-container">
         <div className="counter-header flex-between">
