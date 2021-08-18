@@ -3,7 +3,6 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { VscClose } from 'react-icons/vsc';
@@ -12,45 +11,35 @@ import TaskList from './taskList';
 import Info from './dayInfo';
 import Message from './message';
 
-class MainTaskContainer extends Component {
-  constructor() {
-    super();
-    this.state = { };
-  }
-
-  render() {
-    const {
-      value, onChange, onClose, isClick, onSubmit, onUpdate, todos, onDelete, onComplete, completedCounter, InprogressCounter, todosCounter,
-    } = this.props;
-    return (
-      <div className="main-tasks">
-        <div className="main-task-wrapper">
-          <div className="row1">
-            <TaskCounter completedCounter={completedCounter} InprogressCounter={InprogressCounter} todosCounter={todosCounter}/>
-            <TaskList onUpdate={onUpdate} todos={todos} onDelete={onDelete} onComplete={onComplete}/>
-          </div>
-          <div className="row2">
-            <Info />
-            <Message />
-            <Message />
-          </div>
-        </div>
-        { isClick && (
-        <div className="add-task-form">
-          <form id="form" onSubmit={(e) => onSubmit(e)}>
-            <input onChange={(e) => onChange(e)} type="text" name="addTask" placeholder="Add Task" value={value} />
-            <span className="close flex-center" onClick={onClose}>
-              <IconContext.Provider value={{ className: 'icon' }}>
-                <VscClose />
-              </IconContext.Provider>
-            </span>
-          </form>
-        </div>
-        )}
+const MainTaskContainer = ({
+  value, onChange, onClose, isClick, onSubmit, onUpdate, todos, onDelete, onComplete, completedCounter, InprogressCounter, todosCounter,
+}) => (
+  <div className="main-tasks">
+    <div className="main-task-wrapper">
+      <div className="row1">
+        <TaskCounter completedCounter={completedCounter} InprogressCounter={InprogressCounter} todosCounter={todosCounter}/>
+        <TaskList onUpdate={onUpdate} todos={todos} onDelete={onDelete} onComplete={onComplete}/>
       </div>
-    );
-  }
-}
+      <div className="row2">
+        <Info />
+        <Message />
+        <Message />
+      </div>
+    </div>
+    { isClick && (
+    <div className="add-task-form">
+      <form id="form" onSubmit={(e) => onSubmit(e)}>
+        <input onChange={(e) => onChange(e)} type="text" name="addTask" placeholder="Add Task" value={value} />
+        <span className="close flex-center" onClick={onClose}>
+          <IconContext.Provider value={{ className: 'icon' }}>
+            <VscClose />
+          </IconContext.Provider>
+        </span>
+      </form>
+    </div>
+    )}
+  </div>
+);
 
 MainTaskContainer.propTypes = {
   isClick: propTypes.bool.isRequired,
