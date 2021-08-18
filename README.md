@@ -1,5 +1,7 @@
 # Todo list
+![todo](https://user-images.githubusercontent.com/57562869/129909374-ff6d0142-7b8b-4f09-819f-f2821e93f52c.png)
 
+This is web application for managing task.
 ## Built With
 
 - ReactJS
