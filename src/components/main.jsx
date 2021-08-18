@@ -90,6 +90,13 @@ class Main extends Component {
     }
   }
 
+  handleCountCompletedTodos = () => {
+    const { todos } = this.state;
+    const newTodos = [...todos];
+    const completedTodos = newTodos.filter((todo) => todo.completed === true);
+    return completedTodos.length;
+  }
+
   render() {
     const { value, isClick, todos } = this.state;
     return (
@@ -105,6 +112,7 @@ class Main extends Component {
           onComplete={this.handleCompleteTask}
           value={value}
           todos={todos}
+          completedCounter={this.handleCountCompletedTodos}
         />
       </div>
     );

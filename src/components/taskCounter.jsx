@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import propTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { FiMoreHorizontal } from 'react-icons/fi';
 
@@ -9,6 +10,7 @@ class TaskCounter extends Component {
   }
 
   render() {
+    const { completedCounter } = this.props;
     return (
       <div className="counter-container">
         <div className="counter-header flex-between">
@@ -21,21 +23,25 @@ class TaskCounter extends Component {
         </div>
         <div className="counters flex-between">
           <div className="counter flex-center">
-            <span>113</span>
+            <span>{completedCounter()}</span>
             <p className="title">Done</p>
           </div>
           <div className="counter flex-center">
             <span>113</span>
-            <p className="title">Pending</p>
+            <p className="title">Progress</p>
           </div>
           <div className="counter flex-center">
             <span>113</span>
-            <p className="title">Progress</p>
+            <p className="title">Pending</p>
           </div>
         </div>
       </div>
     );
   }
 }
+
+TaskCounter.propTypes = {
+  completedCounter: propTypes.number.isRequired,
+};
 
 export default TaskCounter;

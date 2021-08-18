@@ -20,13 +20,13 @@ class MainTaskContainer extends Component {
 
   render() {
     const {
-      value, onChange, onClose, isClick, onSubmit, onUpdate, todos, onDelete, onComplete,
+      value, onChange, onClose, isClick, onSubmit, onUpdate, todos, onDelete, onComplete, completedCounter,
     } = this.props;
     return (
       <div className="main-tasks">
         <div className="main-task-wrapper">
           <div className="row1">
-            <TaskCounter />
+            <TaskCounter completedCounter={completedCounter}/>
             <TaskList onUpdate={onUpdate} todos={todos} onDelete={onDelete} onComplete={onComplete}/>
           </div>
           <div className="row2">
@@ -62,6 +62,7 @@ MainTaskContainer.propTypes = {
   onDelete: propTypes.func.isRequired,
   onComplete: propTypes.func.isRequired,
   todos: propTypes.array.isRequired,
+  completedCounter: propTypes.number.isRequired,
 };
 
 export default MainTaskContainer;
