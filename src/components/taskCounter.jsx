@@ -10,7 +10,7 @@ class TaskCounter extends Component {
   }
 
   render() {
-    const { completedCounter } = this.props;
+    const { completedCounter, InprogressCounter, todosCounter } = this.props;
     return (
       <div className="counter-container">
         <div className="counter-header flex-between">
@@ -27,12 +27,12 @@ class TaskCounter extends Component {
             <p className="title">Done</p>
           </div>
           <div className="counter flex-center">
-            <span>113</span>
+            <span>{InprogressCounter()}</span>
             <p className="title">Progress</p>
           </div>
           <div className="counter flex-center">
-            <span>113</span>
-            <p className="title">Pending</p>
+            <span>{todosCounter()}</span>
+            <p className="title">All</p>
           </div>
         </div>
       </div>
@@ -42,6 +42,8 @@ class TaskCounter extends Component {
 
 TaskCounter.propTypes = {
   completedCounter: propTypes.number.isRequired,
+  InprogressCounter: propTypes.number.isRequired,
+  todosCounter: propTypes.number.isRequired,
 };
 
 export default TaskCounter;

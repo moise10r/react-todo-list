@@ -93,8 +93,21 @@ class Main extends Component {
   handleCountCompletedTodos = () => {
     const { todos } = this.state;
     const newTodos = [...todos];
-    const completedTodos = newTodos.filter((todo) => todo.completed === true);
+    const completedTodos = newTodos.filter((todo) => todo.completed);
     return completedTodos.length;
+  }
+
+  handleCountProgressTodos = () => {
+    const { todos } = this.state;
+    const newTodos = [...todos];
+    const completedTodos = newTodos.filter((todo) => !todo.completed);
+    return completedTodos.length;
+  }
+
+  handleCountTodos = () => {
+    const { todos } = this.state;
+    const newTodos = [...todos];
+    return newTodos.length;
   }
 
   render() {
@@ -113,6 +126,8 @@ class Main extends Component {
           value={value}
           todos={todos}
           completedCounter={this.handleCountCompletedTodos}
+          InprogressCounter={this.handleCountProgressTodos}
+          todosCounter={this.handleCountTodos}
         />
       </div>
     );
