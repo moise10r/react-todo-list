@@ -41,9 +41,9 @@ class TaskCounter extends Component {
 }
 
 TaskCounter.propTypes = {
-  completedCounter: propTypes.number.isRequired,
-  InprogressCounter: propTypes.number.isRequired,
-  todosCounter: propTypes.number.isRequired,
+  completedCounter: propTypes.func.isRequired,
+  InprogressCounter: propTypes.func.isRequired,
+  todosCounter: propTypes.func.isRequired,
 };
 
 export default TaskCounter;

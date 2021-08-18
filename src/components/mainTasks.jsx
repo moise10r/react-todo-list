@@ -62,9 +62,9 @@ MainTaskContainer.propTypes = {
   onDelete: propTypes.func.isRequired,
   onComplete: propTypes.func.isRequired,
   todos: propTypes.array.isRequired,
-  completedCounter: propTypes.number.isRequired,
-  InprogressCounter: propTypes.number.isRequired,
-  todosCounter: propTypes.number.isRequired,
+  completedCounter: propTypes.func.isRequired,
+  InprogressCounter: propTypes.func.isRequired,
+  todosCounter: propTypes.func.isRequired,
 };
 
 export default MainTaskContainer;
