@@ -79,7 +79,27 @@ button {
   background-color: var(--bg-contentColor);
   position: fixed;
   top: 0;
+  left: -200px;
+  transition: 1s;
+}
+
+.aside-main-wrapper.open {
   left: 0;
+}
+
+.menu-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: -2.6rem;
+  padding: 0.7rem;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  cursor: pointer;
+}
+
+.menu-icon .icon {
+  font-size: 1.3rem;
+  color: var(--primary-color);
 }
 
 .main-logo-wrapper {
@@ -109,9 +129,13 @@ button {
   height: 100%;
   align-items: flex-start;
   width: 90%;
-  margin-left: 200px;
+  margin-left: 3rem;
+  transition: 1s;
 }
 
+.main-right-section.open {
+  margin-left: 200px;
+}
 .auth span {
   color: var(--secondary-text-color);
   cursor: pointer;

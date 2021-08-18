@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable max-len */
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import Header from './header';
 import MainTaskContainer from './mainTasks';
 
@@ -112,8 +113,9 @@ class Main extends Component {
 
   render() {
     const { value, isClick, todos } = this.state;
+    const { isOpened } = this.props;
     return (
-      <div className="main-right-section">
+      <div className={isOpened ? 'main-right-section open' : 'main-right-section'}>
         <Header onClick={this.handleAddTaskForm} />
         <MainTaskContainer
           onChange={this.handleChange}
@@ -134,4 +136,7 @@ class Main extends Component {
   }
 }
 
+Main.propTypes = {
+  isOpened: propTypes.bool.isRequired,
+};
 export default Main;

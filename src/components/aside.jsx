@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import { IconContext } from 'react-icons';
-import { AiTwotoneHome } from 'react-icons/ai';
+import { AiTwotoneHome, AiOutlineMenuFold } from 'react-icons/ai';
 import { FaProjectDiagram, FaCalendarAlt } from 'react-icons/fa';
 import { ImMail2 } from 'react-icons/im';
 import logo from '../assets/image/logo.png';
@@ -12,8 +13,9 @@ class Aside extends Component {
   }
 
   render() {
+    const { isOpened, onOpenSideBar } = this.props;
     return (
-      <div className="aside-main-wrapper">
+      <div className={isOpened ? 'aside-main-wrapper open' : 'aside-main-wrapper'}>
         <div className="main-logo-wrapper flex-center">
           <div className="logo-wrapper">
             <img src={logo} alt="logo" />
@@ -59,9 +61,18 @@ class Aside extends Component {
             </a>
           </li>
         </ul>
+        <button type="button" className="menu-icon flex-center" onClick={onOpenSideBar}>
+          <IconContext.Provider value={{ className: 'icon' }}>
+            <AiOutlineMenuFold />
+          </IconContext.Provider>
+        </button>
       </div>
     );
   }
 }
 
+Aside.propTypes = {
+  isOpened: propTypes.bool.isRequired,
+  onOpenSideBar: propTypes.func.isRequired,
+};
 export default Aside;
