@@ -43,7 +43,7 @@ const Main = ({ isOpened }) => {
   };
 
   const handleUpdate = (e, id) => {
-    const { todos } = state;
+    const todos = JSON.parse(localStorage.getItem('tasks'));
     todos.forEach((todo) => {
       if (todo.id === id) {
         todo.title = e.target.value;
@@ -61,7 +61,7 @@ const Main = ({ isOpened }) => {
   };
 
   const handleCompleteTask = (id) => {
-    const { todos } = state;
+    const todos = JSON.parse(localStorage.getItem('tasks'));
     todos.forEach((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
@@ -72,42 +72,41 @@ const Main = ({ isOpened }) => {
   };
 
   const handleSubmit = (e) => {
-    const { todos } = state;
+    const todos = JSON.parse(localStorage.getItem('tasks'));
     e.preventDefault();
     if (e.target[0].value === '') {
       e.preventDefault();
     } else {
-      const newTodos = [...todos];
       const todo = {
         id: todos.length,
         title: e.target[0].value,
         completed: false,
       };
-      newTodos.push(todo);
-      localStorage.setItem('tasks', JSON.stringify(newTodos));
+      todos.push(todo);
+      localStorage.setItem('tasks', JSON.stringify(todos));
       setstate({
         ...state,
-        todos: newTodos,
+        todos,
       });
     }
   };
 
   const handleCountCompletedTodos = () => {
-    const { todos } = state;
+    const todos = JSON.parse(localStorage.getItem('tasks'));
     const newTodos = [...todos];
     const completedTodos = newTodos.filter((todo) => todo.completed);
     return completedTodos.length;
   };
 
   const handleCountProgressTodos = () => {
-    const { todos } = state;
+    const todos = JSON.parse(localStorage.getItem('tasks'));
     const newTodos = [...todos];
     const completedTodos = newTodos.filter((todo) => !todo.completed);
     return completedTodos.length;
   };
 
   const handleCountTodos = () => {
-    const { todos } = state;
+    const todos = JSON.parse(localStorage.getItem('tasks'));
     const newTodos = [...todos];
     return newTodos.length;
   };
