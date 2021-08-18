@@ -97,6 +97,29 @@ button {
   cursor: pointer;
 }
 
+.contact-main-section {
+  height: 100vh;
+  width: 90%;
+  margin-left: 3rem;
+  transition: 1s;
+}
+
+.contact-main-section.open {
+  margin-left: 200px;
+}
+
+.contact-main-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  color: var(--secondary-text-color);
+}
+
+.contact-main-wrapper .title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
 .menu-icon .icon {
   font-size: 1.3rem;
   color: var(--primary-color);
