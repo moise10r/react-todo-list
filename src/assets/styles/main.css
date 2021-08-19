@@ -453,6 +453,15 @@ button {
   font-style: italic;
 }
 
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  margin-top: 0.5rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 600px) {
   .main-task-wrapper {
     display: grid;
