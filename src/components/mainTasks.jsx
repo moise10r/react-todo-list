@@ -30,6 +30,7 @@ const MainTaskContainer = ({
     <div className="add-task-form">
       <form id="form" onSubmit={(e) => onSubmit(e)}>
         <input onChange={(e) => onChange(e)} type="text" name="addTask" placeholder="Add Task" value={value} />
+        <button type="submit" className="btn">Add</button>
         <span className="close flex-center" onClick={onClose}>
           <IconContext.Provider value={{ className: 'icon' }}>
             <VscClose />

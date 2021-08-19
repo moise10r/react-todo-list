@@ -43,7 +43,7 @@ const Main = ({ isOpened }) => {
   };
 
   const handleUpdate = (e, id) => {
-    const todos = JSON.parse(localStorage.getItem('tasks'));
+    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
     todos.forEach((todo) => {
       if (todo.id === id) {
         todo.title = e.target.value;
@@ -54,14 +54,14 @@ const Main = ({ isOpened }) => {
   };
 
   const handleDelete = (id) => {
-    const todos = JSON.parse(localStorage.getItem('tasks'));
+    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
     const upadetedTodos = todos.filter((todo) => todo.id !== id);
     localStorage.setItem('tasks', JSON.stringify(upadetedTodos));
     setstate({ ...state, todos: upadetedTodos });
   };
 
   const handleCompleteTask = (id) => {
-    const todos = JSON.parse(localStorage.getItem('tasks'));
+    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
     todos.forEach((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
@@ -72,7 +72,7 @@ const Main = ({ isOpened }) => {
   };
 
   const handleSubmit = (e) => {
-    const todos = JSON.parse(localStorage.getItem('tasks'));
+    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
     e.preventDefault();
     if (e.target[0].value === '') {
       e.preventDefault();
@@ -92,23 +92,20 @@ const Main = ({ isOpened }) => {
   };
 
   const handleCountCompletedTodos = () => {
-    const todos = JSON.parse(localStorage.getItem('tasks'));
-    const newTodos = [...todos];
-    const completedTodos = newTodos.filter((todo) => todo.completed);
+    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
+    const completedTodos = todos.filter((todo) => todo.completed);
     return completedTodos.length;
   };
 
   const handleCountProgressTodos = () => {
-    const todos = JSON.parse(localStorage.getItem('tasks'));
-    const newTodos = [...todos];
-    const completedTodos = newTodos.filter((todo) => !todo.completed);
+    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
+    const completedTodos = todos.filter((todo) => !todo.completed);
     return completedTodos.length;
   };
 
   const handleCountTodos = () => {
-    const todos = JSON.parse(localStorage.getItem('tasks'));
-    const newTodos = [...todos];
-    return newTodos.length;
+    const todos = JSON.parse(localStorage.getItem('tasks')) || [];
+    return todos.length;
   };
 
   const { value, isClick, todos } = state;
