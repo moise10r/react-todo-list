@@ -87,6 +87,7 @@ const Main = ({ isOpened }) => {
       setstate({
         ...state,
         todos,
+        value: '',
       });
     }
   };
