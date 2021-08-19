@@ -7,6 +7,9 @@ This is web application for managing task.
 - ReactJS
 - Css
 
+## Live demon
+
+[live demo](https://friendly-ritchie-818eff.netlify.app/)
 
 ## Getting Started
 
