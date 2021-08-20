@@ -79,7 +79,50 @@ button {
   background-color: var(--bg-contentColor);
   position: fixed;
   top: 0;
+  left: -200px;
+  transition: 1s;
+}
+
+.aside-main-wrapper.open {
   left: 0;
+}
+
+.menu-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: -2.6rem;
+  padding: 0.7rem;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  cursor: pointer;
+}
+
+.contact-main-section {
+  height: 100vh;
+  width: 90%;
+  margin-left: 3rem;
+  transition: 1s;
+}
+
+.contact-main-section.open {
+  margin-left: 200px;
+}
+
+.contact-main-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  color: var(--secondary-text-color);
+}
+
+.contact-main-wrapper .title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.menu-icon .icon {
+  font-size: 1.3rem;
+  color: var(--primary-color);
 }
 
 .main-logo-wrapper {
@@ -109,6 +152,11 @@ button {
   height: 100%;
   align-items: flex-start;
   width: 90%;
+  margin-left: 3rem;
+  transition: 1s;
+}
+
+.main-right-section.open {
   margin-left: 200px;
 }
 
@@ -214,6 +262,7 @@ button {
   width: 100%;
   margin-top: 2rem;
   padding-bottom: 3rem;
+  position: relative;
 }
 
 .main-task-wrapper {
@@ -301,12 +350,21 @@ button {
   background-color: var(--bg-contentColor);
 }
 
-.icons .icon {
-  font-size: 1.2rem;
-  color: var(--secondary-text-color);
+.icons {
+  display: none;
 }
 
-.icons .icon:last-child {
+.icons.show {
+  display: block;
+}
+
+.icons span .icon {
+  font-size: 1.2rem;
+  color: var(--secondary-text-color);
+  cursor: pointer;
+}
+
+.icons span:last-child .icon {
   margin-left: 0.3rem;
   color: #f05454;
 }
@@ -346,6 +404,62 @@ button {
   font-size: 0.8rem;
   margin-top: 1rem;
   color: var(--primary-color);
+}
+
+.add-task-form {
+  position: fixed;
+  top: 7rem;
+  left: 40%;
+  z-index: 1000;
+  width: 30rem;
+}
+
+.add-task-form #form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 3rem;
+  border-radius: 0.5rem;
+  background-color: var(--text-color);
+  position: relative;
+}
+
+.add-task-form #form input {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem 0.5rem;
+  font-weight: 400;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 0.7rem;
+}
+
+.add-task-form #form .close {
+  position: absolute;
+  top: -0.7rem;
+  right: -0.7rem;
+  padding: 0.1rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.add-task-form #form .close .icon {
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+.completed {
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  margin-top: 0.5rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 600px) {
